@@ -38,6 +38,7 @@ export default defineConfig(() => {
         plugins: [
             qwikCity({
                 trailingSlash: SITE.trailingSlash,
+                routesDir: './src/routes',
             }),
             qwikVite(),
             tsconfigPaths(),
@@ -46,6 +47,16 @@ export default defineConfig(() => {
             headers: {
                 'Cache-Control': 'public, max-age=600',
             },
-        }
+        },
+        build: {
+            outDir: 'dist',
+           
+            lib: {
+                entry: './src/routes/index.tsx',
+                formats: ['es', 'cjs'],
+                fileName: (format) => `index.qwik.${format === 'es' ? 'mjs' : 'cjs'}`,
+            },
+            target: 'es2020',
+        },
     };
 });
