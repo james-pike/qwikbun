@@ -11,6 +11,7 @@ export default defineConfig(() => {
         formats: ["es", "cjs"],
         fileName: (format) => `index.qwik.${format === "es" ? "mjs" : "cjs"}`,
       },
+      outDir: "dist",  // Ensure the build output goes to the dist directory
     },
     plugins: [qwikVite(), tsconfigPaths()],
   };
