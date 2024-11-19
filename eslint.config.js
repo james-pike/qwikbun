@@ -1,7 +1,7 @@
-// eslint.config.js
-import { Linter } from "eslint";
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
-import qwikPlugin from "eslint-plugin-qwik";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default [
   {
@@ -19,8 +19,8 @@ export default [
       },
     },
     plugins: {
-      "@typescript-eslint": typescriptPlugin,
-      qwik: qwikPlugin,
+      "@typescript-eslint": require("@typescript-eslint/eslint-plugin"),
+      qwik: require("eslint-plugin-qwik"),
     },
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
@@ -40,6 +40,6 @@ export default [
     },
   },
   {
-    ignores: ["node_modules", "dist"], // Optional: Add ignored folders
+    ignores: ["node_modules", "dist"],
   },
 ];
