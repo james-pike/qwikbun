@@ -1,5 +1,8 @@
-import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from 'url';
+import path from 'path';
+import typescriptParser from '@typescript-eslint/parser';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+import qwikPlugin from 'eslint-plugin-qwik';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -7,20 +10,20 @@ export default [
   {
     files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     languageOptions: {
-      parser: "@typescript-eslint/parser",
+      parser: typescriptParser,
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: ["./tsconfig.json"],
+        project: ['./tsconfig.json'],
         ecmaVersion: 2021,
         sourceType: "module",
         ecmaFeatures: {
-          jsx: true,
+          jsx: true
         },
       },
     },
     plugins: {
-      "@typescript-eslint": require("@typescript-eslint/eslint-plugin"),
-      qwik: require("eslint-plugin-qwik"),
+      "@typescript-eslint": typescriptPlugin,
+      qwik: qwikPlugin,
     },
     rules: {
       "@typescript-eslint/no-explicit-any": "off",

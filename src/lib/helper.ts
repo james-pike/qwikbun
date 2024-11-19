@@ -7,7 +7,7 @@ export const getTheme = (key: string, fallback?: string) => {
 	try {
 		theme = localStorage.getItem(key) || undefined
 	} catch (e) {
-		// Unsupported
+		console.log(e);
 	}
 	return theme || fallback
 }

@@ -84,7 +84,7 @@ export const ThemeProvider = component$<ThemeProviderProps>(
 				try {
 					localStorage.setItem(storageKey, Array.isArray(theme) ? theme.join(" ") : (theme as string))
 				} catch (e) {
-					// Unsupported
+					console.log(e);
 				}
 			}),
 			forcedTheme,
