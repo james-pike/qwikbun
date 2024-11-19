@@ -8,7 +8,7 @@ export default () => {
 		<>
 			<head>
 				<meta charSet="utf-8" />
-				<title>Qwik Blank App</title>
+				<title>Qwik Blanks App</title>
 			</head>
 			<body>
 				<ThemeProvider
